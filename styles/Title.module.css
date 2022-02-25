@@ -1,5 +1,12 @@
-.title{
-  width: 100%;
-  min-height: 700px;
-  color: #fff;
+.title {
+	width: 100%;
+	min-height: 700px;
+	color: #fff;
+	background: linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%);
+}
+
+@media (min-width: 768px) {
+	.title {
+		background: inherit;
+	}
 }
