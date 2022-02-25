@@ -1,0 +1,11 @@
+.container {
+	background-image: linear-gradient(
+			to right,
+			rgb(0 0 0 / 0.4),
+			rgb(0 0 0 / 0.7)
+		),
+		url("https://image.tmdb.org/t/p/original/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50%;
+}

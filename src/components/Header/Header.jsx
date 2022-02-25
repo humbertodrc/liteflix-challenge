@@ -5,7 +5,12 @@ import icono from "../../assets/img/menu.png";
 import notifications from "../../assets/img/notificacion.png";
 import photo from "../../assets/img/perfil.png";
 
-const Header = () => {
+const Header = ({setModal}) => {
+
+  const handleModal = () => {
+    setModal(true)
+  }
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.header__actions}>
@@ -15,11 +20,18 @@ const Header = () => {
 					alt="agregar pelicula"
 				/>
 				<div className={styles.header__separator}>
-          <a className={styles.header__more}>	<img className={styles.header__cross} src={more} alt="icono agregar pelicula" />agregar película</a>
+					<a className={styles.header__more} onClick={handleModal}>
+						<img
+							className={styles.header__cross}
+							src={more}
+							alt="icono agregar pelicula"
+						/>
+						agregar película
+					</a>
 				</div>
-					<p className={styles.header__logo}>
-						LITE<span className={styles.header__modifier}>FLIX</span>
-					</p>
+				<p className={styles.header__logo}>
+					LITE<span className={styles.header__modifier}>FLIX</span>
+				</p>
 			</div>
 			<div className={styles.header__menu}>
 				<img className={styles.header__icono} src={icono} alt="icono menu" />
