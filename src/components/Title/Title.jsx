@@ -1,8 +1,8 @@
-import React from 'react'
+import styles from "../../../styles/Title.module.css"
 
 function Title() {
   return (
-    <div>Title</div>
+    <div className={styles.title}>Title</div>
   )
 }
 

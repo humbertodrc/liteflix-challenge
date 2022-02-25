@@ -1,8 +1,8 @@
-import React from 'react'
+import styles from "../../../styles/Aside.module.css"
 
 function Aside() {
   return (
-    <div>Aside</div>
+    <div className={styles.aside}>Aside</div>
   )
 }
 
