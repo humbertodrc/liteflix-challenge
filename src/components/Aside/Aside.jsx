@@ -13,13 +13,13 @@ const Container = styled.div`
 
 function Aside() {
 
-	const [ SelectMovies ] = useSelectMovie("Ver:", options)
+	const [ state, SelectMovies ] = useSelectMovie("Ver:", options)
 
 
 	return (
 		<Container>
 			<SelectMovies />
-			
+			{state}
 		</Container>
 	);
 }
