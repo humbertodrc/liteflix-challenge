@@ -1,3 +1,18 @@
+@font-face {
+  font-family: Bebas Neue;
+  src: url("./assets/fonts/BebasNeue-Bold.ttf");
+}
+
+@font-face {
+  font-family: Bebas Neue;
+  src: url("./assets/fonts/BebasNeue-Light.ttf");
+}
+
+@font-face {
+  font-family: Bebas Neue;
+  src: url("./assets/fonts/BebasNeue-Regular.ttf");
+}
+
 /* Document
    ========================================================================== */
 
@@ -20,6 +35,7 @@
 
 body {
   margin: 0;
+  font-family:Bebas Neue;
 }
 
 /**
@@ -345,3 +361,5 @@ template {
 [hidden] {
   display: none;
 }
+
+
