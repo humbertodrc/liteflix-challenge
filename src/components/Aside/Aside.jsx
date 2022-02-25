@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import useSelectMovie from "../../hooks/useSelectMovie";
+import {options} from "../../data/data"
 
 const Container = styled.div`
 	width: 100%;
@@ -12,7 +13,7 @@ const Container = styled.div`
 
 function Aside() {
 
-	const [ SelectMovies ] = useSelectMovie("Ver:")
+	const [ SelectMovies ] = useSelectMovie("Ver:", options)
 
 
 	return (

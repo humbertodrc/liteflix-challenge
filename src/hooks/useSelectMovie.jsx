@@ -30,13 +30,16 @@ const Select = styled.select`
   font-weight: bold;
 `
 
-const useSelectMovie = (label) => {
+const useSelectMovie = (label, options) => {
 	const SelectMovies = () => (
 		<Container>
 			<Label htmlFor="">{label}</Label>
       <Select name="" id="">
-				<option value="">Populares</option>
-				<option value="">Mis Peliculas</option>
+				{options.map(option => (
+          <option key={option.id} value={option.id}>
+            {option.nombre}
+          </option>
+        ))}
 			</Select>
 		</Container>
 	);
