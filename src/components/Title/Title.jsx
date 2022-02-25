@@ -1,8 +1,8 @@
 import styles from "../../../styles/Title.module.css"
 
-function Title() {
+function Title({titleMovie}) {
   return (
-    <div className={styles.title}>Title</div>
+    <div className={styles.title}>{titleMovie}</div>
   )
 }
 
