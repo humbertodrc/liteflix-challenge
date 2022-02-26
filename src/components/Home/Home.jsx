@@ -5,10 +5,8 @@ import Aside from "../Aside/Aside";
 
 function Home({setModal, urlImageMovie, titleMovie}) {
 
-	
-
 	const sectionStyle = {
-		backgroundImage: `linear-gradient( to bottom, rgb(11 11 11 / 60%), rgb(13 13 13 / 87%) ), url(${urlImageMovie})`
+		backgroundImage: `linear-gradient( to bottom, rgb(11 11 11 / 40%), rgb(13 13 13 / 1%) ), url(${urlImageMovie})`
 	};
 
 	return (
