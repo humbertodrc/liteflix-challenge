@@ -1,6 +1,7 @@
+import React, {useState, useEffect} from "react";
 import styled from "@emotion/styled";
 import useSelectMovie from "../../hooks/useSelectMovie";
-import {options} from "../../data/data"
+import {options} from "../../data/options";
 
 const Container = styled.div`
 	width: 100%;
@@ -12,14 +13,42 @@ const Container = styled.div`
 `;
 
 function Aside() {
+	const [movie, SelectMovies] = useSelectMovie("Ver:", options);
+	const [variantMovie, setVariantMovie] = useState([]);
 
-	const [ state, SelectMovies ] = useSelectMovie("Ver:", options)
+	// Get Peliculas 
+	const getMoviesPopular = () => {
+		const urlMoviesPopular = `https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20`;
+		if (movie === 1) {
+			const getAPIData = async () => {
+				const respuesta = await fetch(urlMoviesPopular);
+				const {results} = await respuesta.json();
+				const shuffledArray = results.sort((a, b) => 0.5 - Math.random()).slice(0,3);
+				setVariantMovie(shuffledArray);
+			};
+			getAPIData();
+		} else {
+			const myMovies = [
+				{
+					id: 1,
+					original_title: "No hay pelicula",
+					image: "www.google.com",
+				},
+			];
+			setVariantMovie(myMovies);
+		}
+	};
 
+	useEffect(() => {
+		getMoviesPopular();
+	}, [movie]);
 
 	return (
 		<Container>
 			<SelectMovies />
-			{state}
+			{variantMovie?.map((movie) => (
+				<div key={movie.id}>{movie.original_title}</div>
+			))}
 		</Container>
 	);
 }
