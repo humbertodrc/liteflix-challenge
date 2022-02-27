@@ -10,6 +10,9 @@ const Header = styled.header`
   margin: 22px auto;
 	width: 82%;
   height: 36px;
+  @media (min-width: 768px) {
+		display: none;
+	}
 `;
 
 const Navbar = styled.nav`
@@ -28,6 +31,9 @@ const Title = styled.p`
   font-weight: 700;
   letter-spacing: 4px;
   margin-top: 60px;
+  @media (min-width: 768px) {
+		margin-top: 30px;
+	}
 `
 
 

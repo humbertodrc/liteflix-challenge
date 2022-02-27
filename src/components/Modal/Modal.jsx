@@ -13,10 +13,10 @@ const Container = styled.div`
 	bottom: 0;
 	color: #fff;
 	@media (min-width: 768px) {
-		top: 20%;
-		left: 25%;
-		right: 25%;
-		bottom: 20%;
+		top: 18%;
+		left: 15%;
+		right: 15%;
+		bottom: 18%;
 	}
 `;
 
