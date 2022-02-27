@@ -1,0 +1,49 @@
+.form__custom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: dashed 1px #fff;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 400;
+	margin: 0 auto 2rem;
+	min-height: 81px;
+	overflow: hidden;
+	padding: 10px;
+	position: relative;
+	text-align: center;
+	width: 80%;
+}
+
+.form__file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.form__clip{
+  margin-right: 0.8rem;
+}
+
+.form__text{
+  background: transparent;
+  border-bottom: solid 1px #fff;
+  display: block;
+  width: 80%;
+  margin: 0 auto 1rem;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 4px;
+  padding: 1rem;
+}
+
+.form__text:focus{
+  border: none;
+}

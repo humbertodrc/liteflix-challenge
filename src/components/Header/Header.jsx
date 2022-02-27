@@ -4,6 +4,7 @@ import more from "../../assets/img/plus.png";
 import icono from "../../assets/img/menu.png";
 import notifications from "../../assets/img/notificacion.png";
 import photo from "../../assets/img/perfil.png";
+import Logo from "../Logo/Logo";
 
 const Header = ({setModal}) => {
 
@@ -30,9 +31,7 @@ const Header = ({setModal}) => {
 						agregar película
 					</a>
 				</div>
-				<p className={styles.header__logo}>
-					LITE<span className={styles.header__modifier}>FLIX</span>
-				</p>
+				<Logo />
 			</div>
 			<div className={styles.header__menu}>
 				<img className={styles.header__icono} src={icono} alt="icono menu" />
