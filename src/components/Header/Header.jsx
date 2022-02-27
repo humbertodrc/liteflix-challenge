@@ -18,6 +18,7 @@ const Header = ({setModal}) => {
 					className={styles.header__add}
 					src={addMovie}
 					alt="agregar pelicula"
+					onClick={handleModal}
 				/>
 				<div className={styles.header__separator}>
 					<a className={styles.header__more} onClick={handleModal}>
