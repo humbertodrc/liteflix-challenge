@@ -30,6 +30,9 @@ const Select = styled.select`
 	border: none;
 	color: #fff;
 	font-weight: bold;
+	@media (min-width: 768px) {
+		background: rgba(151, 149, 149, 0.521);
+	}
 `;
 
 const useSelectMovie = (label, options) => {
