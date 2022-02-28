@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import play from "../../assets/img/play.png"
+import play from "../../assets/img/play.png";
 
 const Container = styled.div`
 	width: 90%;
@@ -30,7 +30,7 @@ const Image = styled.img`
 const Title = styled.p`
 	font-size: 16px;
 	letter-spacing: 4px;
-  text-align: center;
+	text-align: center;
 	color: #fff;
 	position: absolute;
 	top: 65%;
@@ -39,26 +39,29 @@ const Title = styled.p`
 `;
 
 const Play = styled.img`
-  position: absolute;
+	position: absolute;
 	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-`
+`;
 
-
-
-const CardMovie = ({movie}) => {
-	const {original_title, backdrop_path} = movie;
+const CardMovie = ({movie, loading}) => {
 
 	return (
 		<Container>
-			<Image
-				src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-				alt="Popular Movie"
-				width={200}
-			/>
-      <Play src={play} alt="play" />
-			<Title>{original_title}</Title>
+			{loading ? (
+				<p>Cargando....</p>
+			) : (
+				<>
+					<Image
+						src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+						alt="Popular Movie"
+						width={200}
+					/>
+					<Play src={play} alt="play" />
+					<Title>{movie?.original_title}</Title>
+				</>
+			)}
 		</Container>
 	);
 };

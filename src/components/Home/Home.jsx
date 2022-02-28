@@ -16,12 +16,15 @@ function Home({modal, setModal}) {
 			const shuffledArray = results
 				.sort((a, b) => 0.5 - Math.random())
 				.slice(0, 1);
-			console.log(shuffledArray)
 			setNowPlaying(shuffledArray[0]);
 		} catch (error) {
 			return error;
 		}
 	};
+
+	// Traer Datos de la API
+	const urlImageMovie = `https://image.tmdb.org/t/p/original/${nowPlaying?.poster_path}`;
+	const titleMovie = `${nowPlaying?.original_title}`;
 
 	useEffect(() => {
 		setLoad(true);
@@ -29,24 +32,25 @@ function Home({modal, setModal}) {
 		setLoad(false);
 	}, []);
 
-	// Traer Datos de la API
-	const urlImageMovie = `https://image.tmdb.org/t/p/original/${nowPlaying?.poster_path}`;
-	const titleMovie = `${nowPlaying?.original_title}`;
-
-	const sectionStyleMovie = {
-		backgroundImage: `linear-gradient( to bottom, rgb(11 11 11 / 60%), rgb(13 13 13 / 1%) ), url(${urlImageMovie})`,
-	};
+	// condicional imagen
+	const sectionStyleMovie = nowPlaying?.poster_path
+		? {
+				backgroundImage: `linear-gradient( to bottom, rgb(11 11 11 / 60%), rgb(13 13 13 / 1%) ), url(${urlImageMovie})`,
+		  }
+		: {
+				background: `#000`,
+		  };
 
 	return (
 		<>
-			{load ? (
+			{nowPlaying.length ? (
 				<p>Cargando...</p>
 			) : (
 				<div className={styles.container} style={sectionStyleMovie}>
 					<Header setModal={setModal} />
 					<main className={styles.container__main}>
 						<Title titleMovie={titleMovie} />
-						<Aside />
+						{!modal? <Aside /> : null}
 					</main>
 				</div>
 			)}

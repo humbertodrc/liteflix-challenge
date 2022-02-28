@@ -5,7 +5,7 @@ import clip from "../../../assets/img/clip.png";
 const FormModal = () => {
 	return (
 		<form>
-			<label forHtml="file" className={styles.form__custom}>
+			<label htmlFor="file" className={styles.form__custom}>
 				<input
 					className={styles.form__file}
 					type="file"
