@@ -96,13 +96,13 @@ function Title({titleMovie}) {
 	return (
 		<div className={styles.title}>
 			<PreTitle>ORIGINAL DE LITEFLIX</PreTitle>
-			<ContainerTile>
-				<Heading>{titleMovie}</Heading>
-			</ContainerTile>
-			<ContainerButtons>
-				<ButtonPlay>REPRODUCIR</ButtonPlay>
-				<ButtonList>MI LISTA</ButtonList>
-			</ContainerButtons>
+				<ContainerTile>
+					<Heading>{titleMovie}</Heading>
+				</ContainerTile>
+				<ContainerButtons>
+					<ButtonPlay>REPRODUCIR</ButtonPlay>
+					<ButtonList>MI LISTA</ButtonList>
+				</ContainerButtons>
 		</div>
 	);
 }

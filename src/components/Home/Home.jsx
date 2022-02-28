@@ -25,7 +25,7 @@ function Home({modal, setModal}) {
 
 	// Traer Datos de la API
 	const urlImageMovie = `https://image.tmdb.org/t/p/original/${nowPlaying?.poster_path}`;
-	const titleMovie = `${nowPlaying?.original_title}`;
+	const titleMovie = nowPlaying?.original_title;
 
 	useEffect(() => {
 		setLoad(true);
