@@ -22,14 +22,16 @@ function Aside() {
 	const [movie, SelectMovies] = useSelectMovie("Ver:", options);
 	const [variantMovie, setVariantMovie] = useState([]);
 
-	// Get Peliculas 
+	// Get Peliculas
 	const getMoviesPopular = () => {
 		const urlMoviesPopular = `https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20`;
 		if (movie === 1) {
 			const getAPIData = async () => {
 				const respuesta = await fetch(urlMoviesPopular);
 				const {results} = await respuesta.json();
-				const shuffledArray = results.sort((a, b) => 0.5 - Math.random()).slice(0,3);
+				const shuffledArray = results
+					.sort((a, b) => 0.5 - Math.random())
+					.slice(0, 3);
 				setVariantMovie(shuffledArray);
 			};
 			getAPIData();
