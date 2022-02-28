@@ -53,7 +53,7 @@ function Aside() {
 		<Container>
 			<SelectMovies />
 			{variantMovie?.map((movie) => (
-				<div key={movie.id}>{movie.original_title}</div>
+				<CardMovie key={movie.id} movie={movie} />
 			))}
 		</Container>
 	);
