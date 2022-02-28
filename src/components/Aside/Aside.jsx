@@ -9,6 +9,10 @@ const Container = styled.div`
 	background: #242424;
 	@media (min-width: 768px) {
 		background: inherit;
+		display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 	}
 `;
 

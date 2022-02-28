@@ -1,11 +1,15 @@
 .title {
 	width: 100%;
-	min-height: 290px;
+	min-height: 330px;
 	background: linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%);
 }
 
 @media (min-width: 768px) {
 	.title {
 		background: inherit;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
 	}
 }

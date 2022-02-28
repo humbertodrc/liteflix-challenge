@@ -6,6 +6,9 @@ const Container = styled.div`
 	width: 100%;
 	@media (min-width: 768px) {
 		background: inherit;
+		display: flex;
+    justify-content: center;
+		margin-top: 60px;
 	}
 `;
 
