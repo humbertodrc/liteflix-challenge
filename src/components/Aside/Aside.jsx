@@ -27,9 +27,9 @@ function Aside() {
 	// Get Peliculas
 	const getMoviesPopular = () => {
 		const urlMoviesPopular = `https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20`;
+		setIsLoading(true);
 		if (movie === 1) {
 			const getAPIData = async () => {
-				setIsLoading(true);
 				const respuesta = await fetch(urlMoviesPopular);
 				const {results} = await respuesta.json();
 				const shuffledArray = results
@@ -48,9 +48,7 @@ function Aside() {
 			];
 			setVariantMovie(myMovies);
 		}
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 2000);
+		setIsLoading(false);
 	};
 
 	useEffect(() => {

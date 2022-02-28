@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import styles from "../../../styles/Home.module.css";
 import Title from "../Title/Title";
 import Aside from "../Aside/Aside";
+import Spinner from "../Spinner/Spinner";
 
 function Home({modal, setModal}) {
 	const [nowPlaying, setNowPlaying] = useState([]);
@@ -43,8 +44,8 @@ function Home({modal, setModal}) {
 
 	return (
 		<>
-			{nowPlaying.length ? (
-				<p>Cargando...</p>
+			{load ? (
+				<Spinner />
 			) : (
 				<div className={styles.container} style={sectionStyleMovie}>
 					<Header setModal={setModal} />
