@@ -28,6 +28,9 @@ const Heading = styled.h1`
 const ContainerTile = styled.div`
 	width: 95%;
 	margin: 0 auto;
+	@media (min-width: 768px) {
+		width: 100%;
+	}
 `;
 
 const PreTitle = styled.p`
