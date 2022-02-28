@@ -4,11 +4,11 @@ import styled from "@emotion/styled";
 const Container = styled.div`
 	background: #242424;
 	width: 100%;
-	@media (min-width: 768px) {
-		background: inherit;
-		display: flex;
+	display: flex;
     justify-content: center;
 		margin-top: 60px;
+	@media (min-width: 768px) {
+		background: inherit;
 	}
 `;
 

@@ -12,13 +12,13 @@
 	.container{
 		background-size: cover;
 		height: 100vh;
-		background-position: 50% 10%;
+		background-position: 50% 15%;
 	}
 }
 
 .container__main{
 	width: 100%;
-	margin: 70px auto;
+	margin: 70px auto 0px;
 }
 
 @media (min-width: 768px) {

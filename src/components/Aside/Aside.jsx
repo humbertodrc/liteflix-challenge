@@ -2,17 +2,19 @@ import React, {useState, useEffect} from "react";
 import styled from "@emotion/styled";
 import useSelectMovie from "../../hooks/useSelectMovie";
 import {options} from "../../data/options";
+import CardMovie from "../Card/CardMovie";
 
 const Container = styled.div`
 	width: 100%;
 	height: 800px;
 	background: #242424;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: center;
 	@media (min-width: 768px) {
 		background: inherit;
-		display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
+		width: 90%;
 	}
 `;
 
