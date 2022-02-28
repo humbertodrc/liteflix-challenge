@@ -9,7 +9,7 @@ function App() {
 	
 	return (
 		<>
-			<Home setModal={setModal}  />
+			<Home modal={modal} setModal={setModal}  />
 			{modal ? <Modal /> : null}
 		</>
 	);
