@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import useSelectMovie from "../../hooks/useSelectMovie";
 import {options} from "../../data/options";
 import CardMovie from "../Card/CardMovie";
+import Spinner from "../Spinner/Spinner";
 
 const Container = styled.div`
 	width: 100%;
@@ -59,7 +60,7 @@ function Aside() {
 	return (
 		<Container>
 			{loading ? (
-				<p>Cargando...</p>
+				<p><Spinner /></p>
 			) : (
 				<>
 					<SelectMovies />

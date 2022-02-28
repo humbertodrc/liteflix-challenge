@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Spinner from "../Spinner/Spinner";
 import play from "../../assets/img/play.png";
 
 const Container = styled.div`
@@ -46,11 +47,12 @@ const Play = styled.img`
 `;
 
 const CardMovie = ({movie, loading}) => {
-
 	return (
 		<Container>
 			{loading ? (
-				<p>Cargando....</p>
+				<p>
+					<Spinner />
+				</p>
 			) : (
 				<>
 					<Image
