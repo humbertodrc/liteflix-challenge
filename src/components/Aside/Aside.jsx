@@ -6,7 +6,7 @@ import CardMovie from "../Card/CardMovie";
 
 const Container = styled.div`
 	width: 100%;
-	height: 800px;
+	/* height: 800px; */
 	background: #242424;
 	display: flex;
 	justify-content: flex-start;
