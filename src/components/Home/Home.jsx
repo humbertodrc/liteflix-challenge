@@ -4,7 +4,7 @@ import styles from "../../../styles/Home.module.css";
 import Title from "../Title/Title";
 import Aside from "../Aside/Aside";
 
-function Home({setModal}) {
+function Home({modal, setModal}) {
 	const [nowPlaying, setNowPlaying] = useState([]);
 	const [load, setLoad] = useState(false);
 

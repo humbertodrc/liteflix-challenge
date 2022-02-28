@@ -21,12 +21,14 @@ const Container = styled.div`
 function Aside() {
 	const [movie, SelectMovies] = useSelectMovie("Ver:", options);
 	const [variantMovie, setVariantMovie] = useState([]);
+	const [loading, setIsLoading] = useState(false);
 
 	// Get Peliculas
 	const getMoviesPopular = () => {
 		const urlMoviesPopular = `https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20`;
 		if (movie === 1) {
 			const getAPIData = async () => {
+				setIsLoading(true);
 				const respuesta = await fetch(urlMoviesPopular);
 				const {results} = await respuesta.json();
 				const shuffledArray = results
@@ -45,6 +47,9 @@ function Aside() {
 			];
 			setVariantMovie(myMovies);
 		}
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 2000);
 	};
 
 	useEffect(() => {
@@ -53,10 +58,16 @@ function Aside() {
 
 	return (
 		<Container>
-			<SelectMovies />
-			{variantMovie?.map((movie) => (
-				<CardMovie key={movie.id} movie={movie} />
-			))}
+			{loading ? (
+				<p>Cargando...</p>
+			) : (
+				<>
+					<SelectMovies />
+					{variantMovie?.map((movie) => (
+						<CardMovie key={movie.id} movie={movie} loading={loading} />
+					))}
+				</>
+			)}
 		</Container>
 	);
 }
