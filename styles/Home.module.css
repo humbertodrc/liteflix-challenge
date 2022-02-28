@@ -17,15 +17,15 @@
 }
 
 .container__main{
-	max-width: 900px;
 	width: 100%;
-	margin: 80px auto;
+	margin: 70px auto;
 }
 
 @media (min-width: 768px) {
 	.container__main {
+		margin: 0 30px;
 		display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 3fr 1fr;
     column-gap: 2rem;
 	}
 }
