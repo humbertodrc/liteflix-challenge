@@ -34,7 +34,7 @@ function Home({setModal}) {
 	const titleMovie = `${nowPlaying?.original_title}`;
 
 	const sectionStyleMovie = {
-		backgroundImage: `linear-gradient( to bottom, rgb(11 11 11 / 40%), rgb(13 13 13 / 1%) ), url(${urlImageMovie})`,
+		backgroundImage: `linear-gradient( to bottom, rgb(11 11 11 / 60%), rgb(13 13 13 / 1%) ), url(${urlImageMovie})`,
 	};
 
 	return (
