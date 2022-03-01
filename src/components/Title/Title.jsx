@@ -70,8 +70,15 @@ const ButtonPlay = styled.button`
 	letter-spacing: 4px;
 	border: none;
 	box-sizing: border-box;
+	transition-property: background-color;
+	transition-duration: 0.3s;
+
+	&:hover{
+		background: rgba(36, 36, 36, 0.1);
+	}
 	@media (min-width: 768px) {
 		padding: 16px;
+		border: 1px solid #242424;
 	}
 `;
 
@@ -87,10 +94,16 @@ const ButtonList = styled.button`
 	background: rgba(36, 36, 36, 0.9);
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	box-sizing: border-box;
+	transition-property: background-color;
+	transition-duration: 0.3s;
+
+	&:hover{
+		background: #242424;
+	}
 	@media (min-width: 768px) {
-		padding: 15px;
+		padding: 16px;
 		margin-left: 1rem;
-		background: rgba(36, 36, 36, 0.1);
+		background: rgba(36, 36, 36, 0.5);
 		box-sizing: border-box;
 	}
 `;
