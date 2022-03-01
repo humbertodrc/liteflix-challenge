@@ -30,7 +30,7 @@ const Title = styled.p`
   line-height: 22px;
   font-weight: 700;
   letter-spacing: 4px;
-  margin-top: 60px;
+  margin: 72px auto;
   @media (min-width: 768px) {
 		margin-top: 30px;
 	}
