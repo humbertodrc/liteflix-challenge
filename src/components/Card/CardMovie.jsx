@@ -25,6 +25,7 @@ const Container = styled.div`
 const Image = styled.img`
 	display: block;
 	width: 100%;
+	height: auto;
 	margin: 0.5rem auto;
 `;
 
@@ -60,7 +61,7 @@ const CardMovie = ({movie, loading}) => {
 						alt="Popular Movie"
 						width={200}
 					/>
-					<Play src={play} alt="play" />
+					<Play src={play}  alt="play" />
 					<Title>{movie?.original_title}</Title>
 				</>
 			)}

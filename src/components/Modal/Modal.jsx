@@ -14,8 +14,8 @@ const Container = styled.div`
 	color: #fff;
 	@media (min-width: 768px) {
 		top: 18%;
-		left: 15%;
-		right: 15%;
+		left: 25%;
+		right: 25%;
 		bottom: 18%;
 	}
 `;
