@@ -1,10 +1,10 @@
 import styles from "../../../styles/Header.module.css";
 import addMovie from "../../assets/img/agregar-película.png";
-import more from "../../assets/img/plus.png";
-import icono from "../../assets/img/menu.png";
-import notifications from "../../assets/img/notificacion.png";
 import photo from "../../assets/img/perfil.png";
 import Logo from "../Logo/Logo";
+import Alert from "../Icons/Alert"
+import Menu from "../Icons/Menu"
+import Plus from "../Icons/Plus";
 
 const Header = ({setModal}) => {
 
@@ -23,24 +23,16 @@ const Header = ({setModal}) => {
 				/>
 				<div className={styles.header__separator}>
 					<a className={styles.header__more} onClick={handleModal}>
-						<img
-							className={styles.header__cross}
-							src={more}
-							alt="icono agregar pelicula"
-						/>
+						<Plus />
 						agregar película
 					</a>
 				</div>
 				<Logo />
 			</div>
 			<div className={styles.header__menu}>
-				<img className={styles.header__icono} src={icono} alt="icono menu" />
-				<img
-					className={styles.header__notifications}
-					src={notifications}
-					alt="notificaciones"
-				/>
-				<img className={styles.header__avatar} src={photo} alt="foto perfil" />
+				<Menu />
+				<Alert />
+				<img className={styles.header__avatar} width={36} height={36} src={photo} alt="foto perfil" />
 			</div>
 		</header>
 	);

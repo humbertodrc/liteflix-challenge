@@ -44,17 +44,6 @@
 	align-items: center;
 }
 
-.header__cross {
-	display: none;
-}
-
-@media (min-width: 768px) {
-	.header__cross {
-		display: inline-block;
-		margin-right: 0.8rem;
-	}
-}
-
 .header__more {
 	display: none;
 }
@@ -80,27 +69,6 @@
 @media (min-width: 768px) {
 	.header__menu {
 		width: 300px;
-	}
-}
-
-.header__icono {
-	display: none;
-}
-
-@media (min-width: 768px) {
-	.header__icono {
-		display: block;
-		margin-right: 50px;
-	}
-}
-
-.header__notifications {
-	display: none;
-}
-
-@media (min-width: 768px) {
-	.header__notifications {
-		display: block;
 	}
 }
 

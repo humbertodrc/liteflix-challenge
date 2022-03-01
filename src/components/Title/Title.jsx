@@ -1,5 +1,7 @@
 import styles from "../../../styles/Title.module.css";
 import styled from "@emotion/styled";
+import PlayTwo from "../Icons/PlayTwo";
+import PlusTwo from "../Icons/PlusTwo"
 
 const Heading = styled.h1`
 	font-size: 40px;
@@ -73,7 +75,7 @@ const ButtonPlay = styled.button`
 	transition-property: background-color;
 	transition-duration: 0.3s;
 
-	&:hover{
+	&:hover {
 		background: rgba(36, 36, 36, 0.1);
 	}
 	@media (min-width: 768px) {
@@ -97,7 +99,7 @@ const ButtonList = styled.button`
 	transition-property: background-color;
 	transition-duration: 0.3s;
 
-	&:hover{
+	&:hover {
 		background: #242424;
 	}
 	@media (min-width: 768px) {
@@ -116,8 +118,14 @@ function Title({titleMovie}) {
 				<Heading>{titleMovie}</Heading>
 			</ContainerTile>
 			<ContainerButtons>
-				<ButtonPlay>REPRODUCIR</ButtonPlay>
-				<ButtonList>MI LISTA</ButtonList>
+				<ButtonPlay>
+					<PlayTwo />
+					REPRODUCIR
+				</ButtonPlay>
+				<ButtonList>
+					<PlusTwo />
+					MI LISTA
+				</ButtonList>
 			</ContainerButtons>
 		</div>
 	);
