@@ -20,12 +20,12 @@ const Container = styled.div`
 	}
 `;
 
-function Modal() {
+function Modal({setModal, myMovies, setMyMovies}) {
 	return (
 		<Container>
 			<HeaderModal />
 			<ProgressModal />
-			<FormModal />
+			<FormModal setModal={setModal} myMovies={myMovies} setMyMovies={setMyMovies} />
 		</Container>
 	);
 }

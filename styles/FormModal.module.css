@@ -3,7 +3,7 @@
 	align-items: center;
 	justify-content: center;
 	background-color: transparent;
-	border: 1px dashed #FFFFFF;
+	border: 1px dashed #ffffff;
 	color: #fff;
 	cursor: pointer;
 	font-size: 16px;
@@ -79,4 +79,10 @@
 	background: rgba(36, 36, 36, 0.5);
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+	.form__exit {
+		display: none;
+	}
 }

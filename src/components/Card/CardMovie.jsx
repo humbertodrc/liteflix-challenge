@@ -47,7 +47,7 @@ const Play = styled.img`
 	transform: translate(-50%, -50%);
 `;
 
-const CardMovie = ({movie, loading}) => {
+const CardMovie = ({movie, select, loading}) => {
 	return (
 		<Container>
 			{loading ? (
@@ -57,11 +57,15 @@ const CardMovie = ({movie, loading}) => {
 			) : (
 				<>
 					<Image
-						src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+						src={
+							select === 1
+								? `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`
+								: `${movie?.backdrop_path}`
+						}
 						alt="Popular Movie"
 						width={200}
 					/>
-					<Play src={play}  alt="play" />
+					<Play src={play} alt="play" />
 					<Title>{movie?.original_title}</Title>
 				</>
 			)}
