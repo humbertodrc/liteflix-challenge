@@ -77,6 +77,7 @@ const ButtonPlay = styled.button`
 
 	&:hover {
 		background: rgba(36, 36, 36, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.5);
 	}
 	@media (min-width: 768px) {
 		padding: 16px;

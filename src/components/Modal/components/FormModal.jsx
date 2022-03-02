@@ -14,6 +14,12 @@ const FormModal = ({setModal, myMovies, setMyMovies}) => {
 
 	const send_image = (files) => {
 		const fileReader = new FileReader();
+		fileReader.onprogress = (data) => {
+			if (data.lengthComputable) {
+				const progress = parseInt((data.loaded / data.total) * 100, 10);
+				console.log(progress);
+			}
+		};
 		fileReader.onload = () => {
 			if (fileReader.readyState === 2) {
 				setFormValues({...formValues, backdrop_path: fileReader.result});
