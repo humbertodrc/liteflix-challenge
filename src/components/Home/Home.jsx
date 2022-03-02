@@ -5,7 +5,7 @@ import Title from "../Title/Title";
 import Aside from "../Aside/Aside";
 import Spinner from "../Spinner/Spinner";
 
-function Home({modal, setModal, popularMovie, setPopularMovie, myMovies}) {
+function Home({setModal, popularMovie, setPopularMovie, myMovies}) {
 	const [nowPlaying, setNowPlaying] = useState([]);
 	const [load, setLoad] = useState(false);
 
@@ -51,13 +51,11 @@ function Home({modal, setModal, popularMovie, setPopularMovie, myMovies}) {
 					<Header setModal={setModal} />
 					<main className={styles.container__main}>
 						<Title titleMovie={titleMovie} />
-						{!modal ? (
-							<Aside
-								popularMovie={popularMovie}
-								setPopularMovie={setPopularMovie}
-								myMovies={myMovies}
-							/>
-						) : null}
+						<Aside
+							popularMovie={popularMovie}
+							setPopularMovie={setPopularMovie}
+							myMovies={myMovies}
+						/>
 					</main>
 				</div>
 			)}

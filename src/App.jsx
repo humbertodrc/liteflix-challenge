@@ -26,7 +26,6 @@ function App() {
 	return (
 		<>
 			<Home
-				modal={modal}
 				setModal={setModal}
 				popularMovie={popularMovie}
 				setPopularMovie={setPopularMovie}
