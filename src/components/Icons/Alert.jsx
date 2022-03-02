@@ -3,6 +3,17 @@ import styled from "@emotion/styled";
 
 const AlertSvg = styled.svg`
 	display: none;
+	animation: dance 1s 3 alternate;
+
+	@keyframes dance {
+		50% {
+			transform: rotate(-15deg);
+		}
+		100% {
+			transform: rotate(15deg);
+		}
+	}
+
 	@media (min-width: 768px) {
 		display: block;
 	}
@@ -22,7 +33,7 @@ const ALert = (props) => (
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>
-		<circle cx={20.5} cy={5.5} r={4.5} fill="#64EEBC" />
+		<circle className="circle" cx={20.5} cy={5.5} r={4.5} fill="#64EEBC" />
 	</AlertSvg>
 );
 
