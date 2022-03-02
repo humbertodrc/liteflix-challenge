@@ -48,6 +48,9 @@ const Play = styled.img`
 `;
 
 const CardMovie = ({movie, select, loading}) => {
+
+	const {backdrop_path, original_title} = movie
+
 	return (
 		<Container>
 			{loading ? (
@@ -59,14 +62,14 @@ const CardMovie = ({movie, select, loading}) => {
 					<Image
 						src={
 							select === 1
-								? `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`
-								: `${movie?.backdrop_path}`
+								? `https://image.tmdb.org/t/p/original/${backdrop_path}`
+								: `${backdrop_path}`
 						}
 						alt="Popular Movie"
 						width={200}
 					/>
 					<Play src={play} alt="play" />
-					<Title>{movie?.original_title}</Title>
+					<Title>{original_title}</Title>
 				</>
 			)}
 		</Container>

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import Logo from "../../Logo/Logo"
 import avatar from "../../../assets/img/perfil.png"
+import Close from "../../Icons/Close";
 
 const Header = styled.header`
 	display: flex;
@@ -32,12 +33,17 @@ const Title = styled.p`
   letter-spacing: 4px;
   margin: 72px auto;
   @media (min-width: 768px) {
-		margin-top: 30px;
+		margin-top: 48px;
 	}
 `
 
 
-const HeaderModal = () => {
+const HeaderModal = ({setModal}) => {
+
+  const handleModal = () => {
+		setModal(false);
+	};
+
 	return (
 		<>
     <Header>
@@ -46,6 +52,7 @@ const HeaderModal = () => {
 				<img src={avatar} alt="avatar" />
 			</Navbar>
 		</Header>
+    <Close onClick={handleModal} />
     <Title>agregar película</Title>
     </>
 	);

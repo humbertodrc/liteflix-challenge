@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 const AlertSvg = styled.svg`
 	display: none;
 	animation: dance 1s 3 alternate;
-
+	
 	@keyframes dance {
 		50% {
 			transform: rotate(-15deg);

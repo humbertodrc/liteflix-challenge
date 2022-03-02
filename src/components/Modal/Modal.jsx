@@ -23,7 +23,7 @@ const Container = styled.div`
 function Modal({setModal, myMovies, setMyMovies}) {
 	return (
 		<Container>
-			<HeaderModal />
+			<HeaderModal setModal={setModal} />
 			<ProgressModal />
 			<FormModal setModal={setModal} myMovies={myMovies} setMyMovies={setMyMovies} />
 		</Container>
