@@ -13,18 +13,20 @@ const Container = styled.div`
 	bottom: 0;
 	color: #fff;
 	@media (min-width: 768px) {
-		top: 18%;
+		top: 16%;
 		left: 25%;
 		right: 25%;
-		bottom: 18%;
+		bottom: 16%;
 	}
 `;
 
 function Modal({setModal, myMovies, setMyMovies}) {
+
+
 	return (
 		<Container>
 			<HeaderModal setModal={setModal} />
-			<ProgressModal />
+			<ProgressModal  />
 			<FormModal setModal={setModal} myMovies={myMovies} setMyMovies={setMyMovies} />
 		</Container>
 	);

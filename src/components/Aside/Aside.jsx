@@ -30,7 +30,7 @@ function Aside({popularMovie, setPopularMovie, myMovies}) {
 		if (select === 1) {
 			const getAPIData = async () => {
 				const respuesta = await fetch(urlMoviesPopular);
-				const {results} = await respuesta.json();
+				const {results} = await respuesta?.json();
 				const shuffledArray = results
 					.sort((a, b) => 0.5 - Math.random())
 					.slice(0, 3);
@@ -61,7 +61,7 @@ function Aside({popularMovie, setPopularMovie, myMovies}) {
 						<>
 							{popularMovie?.map((movie) => (
 								<CardMovie
-									key={movie.id}
+									key={movie?.id}
 									movie={movie}
 									select={select}
 									loading={loading}
@@ -72,7 +72,7 @@ function Aside({popularMovie, setPopularMovie, myMovies}) {
 						<>
 							{myMovies?.map((movie) => (
 								<CardMovie
-									key={movie.id}
+									key={movie?.id}
 									movie={movie}
 									select={select}
 									loading={loading}

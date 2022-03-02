@@ -51,6 +51,8 @@ const CardMovie = ({movie, select, loading}) => {
 
 	const {backdrop_path, original_title} = movie
 
+	// console.log(movie)
+
 	return (
 		<Container>
 			{loading ? (
@@ -66,7 +68,8 @@ const CardMovie = ({movie, select, loading}) => {
 								: `${backdrop_path}`
 						}
 						alt="Popular Movie"
-						width={200}
+						width={327}
+						height={127}
 					/>
 					<Play src={play} alt="play" />
 					<Title>{original_title}</Title>

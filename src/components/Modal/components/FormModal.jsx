@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {useDropzone} from "react-dropzone";
 import styles from "../../../../styles/FormModal.module.css";
 import clip from "../../../assets/img/clip.png";
 
@@ -8,6 +9,16 @@ const FormModal = ({setModal, myMovies, setMyMovies}) => {
 		backdrop_path: "",
 	});
 
+	const {getRootProps, getInputProps, isDragActive} = useDropzone({
+		accept: "image/*",
+		onDrop: (acceptFiles) => {
+			const file = acceptFiles[0];
+			send_image(file);
+		},
+	});
+
+	console.log(isDragActive);
+
 	const handleModal = () => {
 		setModal(false);
 	};
@@ -16,8 +27,8 @@ const FormModal = ({setModal, myMovies, setMyMovies}) => {
 		const fileReader = new FileReader();
 		fileReader.onprogress = (data) => {
 			if (data.lengthComputable) {
+				console.log(data.loaded)
 				const progress = parseInt((data.loaded / data.total) * 100, 10);
-				console.log(progress);
 			}
 		};
 		fileReader.onload = () => {
@@ -32,7 +43,6 @@ const FormModal = ({setModal, myMovies, setMyMovies}) => {
 	const generarID = () => {
 		const random = Math.random().toString(36).substr(2);
 		const fecha = Date.now().toString(36);
-
 		return random + fecha;
 	};
 
@@ -49,25 +59,26 @@ const FormModal = ({setModal, myMovies, setMyMovies}) => {
 
 	return (
 		<form>
-			<label htmlFor="movie" className={styles.form__custom}>
-				<input
-					className={styles.form__file}
-					type="file"
-					id="movie"
-					accept="image/png,image/jpeg"
-					onChange={(e) => {
-						send_image(e.target.files[0]);
-						setFormValues({
-							...formValues,
-							backdrop_path: (window.URL || window.webkitURL).createObjectURL(
-								e.target.files[0]
-							),
-						});
-					}}
-				/>
-				<img className={styles.form__clip} src={clip} alt="clip" />
-				Agregá un archivo
-			</label>
+			<div>
+				<div
+					// htmlFor="movie"
+					className={styles.form__custom}
+					{...getRootProps()}
+				>
+					<input
+						className={styles.form__file}
+						type="file"
+						id="movie"
+						accept="image/png,image/jpeg"
+						onChange={(e) => {
+							send_image(e.target.files[0]);
+						}}
+						{...getInputProps()}
+					/>
+					<img className={styles.form__clip} src={clip} alt="clip" />
+					Agregá un archivo
+				</div>
+			</div>
 			<input
 				value={formValues.original_title}
 				className={styles.form__text}
