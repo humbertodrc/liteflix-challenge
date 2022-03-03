@@ -3,7 +3,15 @@ import {useDropzone} from "react-dropzone";
 import styles from "../../../../styles/FormModal.module.css";
 import clip from "../../../assets/img/clip.png";
 
-const FormModal = ({setModal, myMovies, setMyMovies}) => {
+const FormModal = ({
+	setModal,
+	myMovies,
+	setMyMovies,
+	setProgress,
+	setIsProgress,
+	isForm,
+	setIsForm,
+}) => {
 	const [formValues, setFormValues] = useState({
 		original_title: "",
 		backdrop_path: "",
@@ -27,8 +35,9 @@ const FormModal = ({setModal, myMovies, setMyMovies}) => {
 		const fileReader = new FileReader();
 		fileReader.onprogress = (data) => {
 			if (data.lengthComputable) {
-				console.log(data.loaded)
+				console.log(data);
 				const progress = parseInt((data.loaded / data.total) * 100, 10);
+				setProgress(progress);
 			}
 		};
 		fileReader.onload = () => {
@@ -55,11 +64,13 @@ const FormModal = ({setModal, myMovies, setMyMovies}) => {
 		};
 		myMoviesID.id = generarID();
 		setMyMovies([...myMovies, myMoviesID]);
+		setIsProgress(true);
+		setIsForm(false);
 	};
 
 	return (
 		<form>
-			<div>
+			{isForm && (
 				<div
 					// htmlFor="movie"
 					className={styles.form__custom}
@@ -78,7 +89,7 @@ const FormModal = ({setModal, myMovies, setMyMovies}) => {
 					<img className={styles.form__clip} src={clip} alt="clip" />
 					Agregá un archivo
 				</div>
-			</div>
+			)}
 			<input
 				value={formValues.original_title}
 				className={styles.form__text}

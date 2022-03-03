@@ -10,13 +10,17 @@ const Container = styled.div`
 `
 
 
-const ProgressModal = () => {
+const ProgressModal = ({progress, isProgress}) => {
 	return (
-		<Container>
-			<progress id="file" max="100" value="70">
-				70%
-			</progress>
-		</Container>
+		<>
+			{isProgress && (
+				<Container>
+				<progress id="file" max="100" value={progress}>
+					70%
+				</progress>
+			</Container>
+			)}
+		</>
 	);
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import styled from "@emotion/styled";
 import HeaderModal from "./components/HeaderModal";
 import FormModal from "./components/FormModal";
@@ -21,13 +21,23 @@ const Container = styled.div`
 `;
 
 function Modal({setModal, myMovies, setMyMovies}) {
-
+	const [progress, setProgress] = useState(0);
+	const [isProgress, setIsProgress] = useState(false);
+	const [isForm, setIsForm] = useState(true);
 
 	return (
 		<Container>
 			<HeaderModal setModal={setModal} />
-			<ProgressModal  />
-			<FormModal setModal={setModal} myMovies={myMovies} setMyMovies={setMyMovies} />
+			<ProgressModal progress={progress} isProgress={isProgress} />
+			<FormModal
+				setModal={setModal}
+				myMovies={myMovies}
+				setMyMovies={setMyMovies}
+				setProgress={setProgress}
+				setIsProgress={setIsProgress}
+				isForm={isForm}
+				setIsForm={setIsForm}
+			/>
 		</Container>
 	);
 }
