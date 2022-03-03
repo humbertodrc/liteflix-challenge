@@ -28,11 +28,12 @@ function Modal({setModal, myMovies, setMyMovies}) {
 	return (
 		<Container>
 			<HeaderModal setModal={setModal} />
-			<ProgressModal progress={progress} isProgress={isProgress} />
+			<ProgressModal progress={progress} isProgress={isProgress} setIsProgress={setIsProgress} />
 			<FormModal
 				setModal={setModal}
 				myMovies={myMovies}
 				setMyMovies={setMyMovies}
+				isProgress={isProgress}
 				setProgress={setProgress}
 				setIsProgress={setIsProgress}
 				isForm={isForm}

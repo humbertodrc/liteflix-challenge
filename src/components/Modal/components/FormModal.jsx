@@ -8,6 +8,7 @@ const FormModal = ({
 	myMovies,
 	setMyMovies,
 	setProgress,
+	isProgress,
 	setIsProgress,
 	isForm,
 	setIsForm,
@@ -68,6 +69,7 @@ const FormModal = ({
 		setIsForm(false);
 	};
 
+
 	return (
 		<form>
 			{isForm && (
@@ -103,6 +105,7 @@ const FormModal = ({
 				type="submit"
 				className={styles.form__upload}
 				onClick={handleSubmit}
+				disabled={isProgress}
 			>
 				subir película
 			</button>
