@@ -24,20 +24,30 @@ function Modal({setModal, myMovies, setMyMovies}) {
 	const [progress, setProgress] = useState(0);
 	const [isProgress, setIsProgress] = useState(false);
 	const [isForm, setIsForm] = useState(true);
+	const [ready, setReady] = useState(false);
+	const [isDisabled, setIsdisabled] = useState(true);
+	const [isCancel, setIsCancel] = useState(false);
 
 	return (
 		<Container>
 			<HeaderModal setModal={setModal} />
-			<ProgressModal progress={progress} isProgress={isProgress} setIsProgress={setIsProgress} />
+			<ProgressModal
+				progress={progress}
+				isProgress={isProgress}
+				ready={ready}
+				isCancel={isCancel}
+			/>
 			<FormModal
 				setModal={setModal}
 				myMovies={myMovies}
 				setMyMovies={setMyMovies}
-				isProgress={isProgress}
 				setProgress={setProgress}
 				setIsProgress={setIsProgress}
 				isForm={isForm}
 				setIsForm={setIsForm}
+				isDisabled={isDisabled}
+				setIsdisabled={setIsdisabled}
+				setReady={setReady}
 			/>
 		</Container>
 	);

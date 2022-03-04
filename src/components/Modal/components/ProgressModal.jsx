@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useEffect} from "react";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
@@ -31,7 +31,7 @@ const ProgressBar = styled.div`
 	height: 8px;
 	border-radius: 7px;
 	background: #64eebc;
-	animation: progress-animation 9s forwards;
+	animation: progress-animation 4s forwards;
 
 	@keyframes progress-animation {
 		0% {
@@ -48,7 +48,7 @@ const ContainerButtom = styled.div`
 	justify-content: flex-end;
 `;
 
-const ButtonExit = styled.button`
+const ButtonCancel = styled.button`
 	color: #fff;
 	font-size: 16px;
 	letter-spacing: 4px;
@@ -75,45 +75,62 @@ const ProgressSuccesfull = styled.div`
 	width: 100%;
 `;
 
-const ProgressModal = ({progress, isProgress, setIsProgress}) => {
-	const [ready, setReady] = useState(true);
+const ProgressError = styled.div`
+	position: absolute;
+	left: 0;
+	height: 8px;
+	border-radius: 7px;
+	background: #ff0000;
+	width: 100%;
+`;
 
-	const closePorgress = () => {
-		if (isProgress) {
-			setTimeout(() => {
-				setIsProgress(!isProgress);
-			}, 8000);
-		}
-	};
+const Retry = styled.span`
+	font-size: 16px;
+	letter-spacing: 4px;
+	color: #fff;
+`;
 
-	useEffect(() => {
-		closePorgress();
-	}, [isProgress]);
+const ProgressModal = ({
+	progress,
+	isProgress,
+	ready,
+	isCancel,
+}) => {
 
 	return (
 		<>
-			{isProgress ? (
+			{isCancel && (
 				<Container>
-					<p>Cargando ...</p>
+					<p>¡ERROR! no se pudo cargar la película</p>
+					<ContainerProgress>
+						<ProgressError />
+					</ContainerProgress>
+					<ContainerButtom>
+						<Retry>Reintentar</Retry>
+					</ContainerButtom>
+				</Container>
+			)}
+			{isProgress && (
+				<Container>
+					<p>Cargando {progress}% ...</p>
 					<ContainerProgress>
 						<ProgressBar />
 					</ContainerProgress>
 					<ContainerButtom>
-						<ButtonExit>Cancelar</ButtonExit>
+						<ButtonCancel >Cancelar</ButtonCancel>
 					</ContainerButtom>
 				</Container>
-			) : (
-				<>
-					<Container>
-						<p>100% Cargado</p>
-						<ContainerProgress>
-							<ProgressSuccesfull />
-						</ContainerProgress>
-						<ContainerButtom>
-							<Successful>¡listo!</Successful>
-						</ContainerButtom>
-					</Container>
-				</>
+			)}
+			{ready && (
+				<Container>
+					<p>{progress}% Cargado</p>
+					<ContainerProgress>
+						<ProgressSuccesfull />
+					</ContainerProgress>
+					<ContainerButtom>
+						<Successful>¡listo!</Successful>
+					</ContainerButtom>
+				</Container>
 			)}
 		</>
 	);

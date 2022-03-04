@@ -8,10 +8,12 @@ const FormModal = ({
 	myMovies,
 	setMyMovies,
 	setProgress,
-	isProgress,
 	setIsProgress,
 	isForm,
 	setIsForm,
+	isDisabled,
+	setIsdisabled,
+	setReady,
 }) => {
 	const [formValues, setFormValues] = useState({
 		original_title: "",
@@ -26,6 +28,7 @@ const FormModal = ({
 		},
 	});
 
+	// Colocar la zona de un color
 	console.log(isDragActive);
 
 	const handleModal = () => {
@@ -36,13 +39,19 @@ const FormModal = ({
 		const fileReader = new FileReader();
 		fileReader.onprogress = (data) => {
 			if (data.lengthComputable) {
-				console.log(data);
-				const progress = parseInt((data.loaded / data.total) * 100, 10);
-				setProgress(progress);
+				if (data.isTrusted) {
+					setIsProgress(true);
+					const progress = parseInt((data.loaded / data.total) * 100, 10);
+					setProgress(progress);
+				}
 			}
 		};
 		fileReader.onload = () => {
 			if (fileReader.readyState === 2) {
+				setIsProgress(false);
+				setReady(true);
+				setIsForm(false);
+				setIsdisabled(false);
 				setFormValues({...formValues, backdrop_path: fileReader.result});
 			}
 		};
@@ -65,10 +74,9 @@ const FormModal = ({
 		};
 		myMoviesID.id = generarID();
 		setMyMovies([...myMovies, myMoviesID]);
-		setIsProgress(true);
+		// setIsProgress(true);
 		setIsForm(false);
 	};
-
 
 	return (
 		<form>
@@ -105,7 +113,7 @@ const FormModal = ({
 				type="submit"
 				className={styles.form__upload}
 				onClick={handleSubmit}
-				disabled={isProgress}
+				disabled={isDisabled}
 			>
 				subir película
 			</button>
