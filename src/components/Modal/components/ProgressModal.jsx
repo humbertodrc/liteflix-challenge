@@ -91,11 +91,27 @@ const Retry = styled.span`
 `;
 
 const ProgressModal = ({
+	isCancel,
 	progress,
 	isProgress,
 	ready,
-	isCancel,
+	setIsCancel,
+	setReady,
+	setIsForm
 }) => {
+
+	const handleCancel = () => {
+		setIsCancel(true)
+		setReady(false)
+		setIsCancel(false)
+	}
+
+	const handleRetry = () => {
+		setIsCancel(false)
+		setReady(false)
+		setIsCancel(false)
+		setIsForm(true)
+	}
 
 	return (
 		<>
@@ -106,7 +122,7 @@ const ProgressModal = ({
 						<ProgressError />
 					</ContainerProgress>
 					<ContainerButtom>
-						<Retry>Reintentar</Retry>
+						<Retry onClick={handleRetry}>Reintentar</Retry>
 					</ContainerButtom>
 				</Container>
 			)}
@@ -117,7 +133,7 @@ const ProgressModal = ({
 						<ProgressBar />
 					</ContainerProgress>
 					<ContainerButtom>
-						<ButtonCancel >Cancelar</ButtonCancel>
+						<ButtonCancel onClick={handleCancel}>Cancelar</ButtonCancel>
 					</ContainerButtom>
 				</Container>
 			)}

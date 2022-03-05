@@ -37,24 +37,41 @@ const FormModal = ({
 
 	const send_image = (files) => {
 		const fileReader = new FileReader();
-		fileReader.onprogress = (data) => {
-			if (data.lengthComputable) {
-				if (data.isTrusted) {
-					setIsProgress(true);
-					const progress = parseInt((data.loaded / data.total) * 100, 10);
-					setProgress(progress);
-				}
+
+		fileReader.onerror = () => {
+			setIsCancel(true);
+		};
+
+		fileReader.onloadstart = (data) => {
+			if (fileReader.readyState === 1) {
+				console.log("Ha comenzado la carga", data);
+				let progress = parseInt(data.loaded);
+				setProgress(progress);
 			}
 		};
-		fileReader.onload = () => {
+
+		fileReader.onprogress = (data) => {
+			if (fileReader.readyState === 1) {
+				console.log("Se esta cargado la data", data);
+				setIsForm(false);
+				setIsProgress(true);
+				let progress = parseInt((data.loaded / data.total) * 50, 10);
+				setProgress(progress);
+			}
+		};
+
+		fileReader.onloadend = (data) => {
 			if (fileReader.readyState === 2) {
+				console.log("Se ha cargado toda la data", data);
 				setIsProgress(false);
 				setReady(true);
-				setIsForm(false);
 				setIsdisabled(false);
+				let progress = parseInt((data.loaded / data.total) * 100, 10);
+				setProgress(progress);
 				setFormValues({...formValues, backdrop_path: fileReader.result});
 			}
 		};
+
 		fileReader.readAsDataURL(files);
 	};
 
@@ -65,17 +82,27 @@ const FormModal = ({
 		return random + fecha;
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit =  (e) => {
 		e.preventDefault();
-		// nuevo Objeto para no modificar el estado
-		const myMoviesID = {
-			original_title: formValues.original_title,
-			backdrop_path: formValues.backdrop_path,
-		};
-		myMoviesID.id = generarID();
-		setMyMovies([...myMovies, myMoviesID]);
-		// setIsProgress(true);
-		setIsForm(false);
+
+		const {original_title, backdrop_path} = formValues;
+
+		if (original_title == "" || backdrop_path == "") {
+			// campos obligatorios
+			return;
+		} else {
+			// nuevo Objeto para no modificar el estado
+			const myMoviesID = {
+				original_title: formValues.original_title,
+				backdrop_path: formValues.backdrop_path,
+			};
+			myMoviesID.id = generarID();
+			setMyMovies([...myMovies, myMoviesID]);
+			// setIsProgress(true);
+			setIsForm(false);
+
+			setSuccessful(true);
+		}
 	};
 
 	return (
