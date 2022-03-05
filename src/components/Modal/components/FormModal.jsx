@@ -14,6 +14,7 @@ const FormModal = ({
 	isDisabled,
 	setIsdisabled,
 	setReady,
+	setIsCancel,
 }) => {
 	const [formValues, setFormValues] = useState({
 		original_title: "",
