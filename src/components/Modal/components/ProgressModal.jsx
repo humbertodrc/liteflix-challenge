@@ -1,4 +1,3 @@
-import {useEffect} from "react";
 import styled from "@emotion/styled";
 
 const Container = styled.div`

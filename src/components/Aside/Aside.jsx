@@ -37,7 +37,6 @@ function Aside({popularMovie, setPopularMovie, myMovies}) {
 			};
 			getAPIData();
 		} else {
-			// const myMovies = JSON.parse(localStorage.getItem("Movies"));
 			setPopularMovie(myMovies);
 		}
 		setIsLoading(false);

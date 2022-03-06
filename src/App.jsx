@@ -1,5 +1,4 @@
 import {useState, useEffect} from "react";
-import "./App.css";
 import Home from "./components/Home/Home";
 import Modal from "./components/Modal/Modal";
 

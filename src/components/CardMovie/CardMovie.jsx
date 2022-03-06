@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 import Spinner from "../Spinner/Spinner";
 import play from "../../assets/img/play.png";
@@ -60,8 +59,6 @@ const Play = styled.img`
 
 const CardMovie = ({movie, select, loading}) => {
 	const {backdrop_path, original_title} = movie;
-
-	// console.log(movie)
 
 	return (
 		<Container>
