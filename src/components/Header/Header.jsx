@@ -43,7 +43,7 @@ const Separator = styled.div`
 	align-items: center;
 `;
 
-const AddMore = styled.a`
+const AddMore = styled.button`
 	display: none;
 	@media (min-width: 768px) {
 		font-size: 18px;
@@ -52,6 +52,8 @@ const AddMore = styled.a`
 		color: #fff;
 		display: inline-block;
 		cursor: pointer;
+		background: transparent;
+    border: none;
 	}
 
 	&:hover{
