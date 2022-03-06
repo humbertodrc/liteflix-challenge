@@ -1,7 +1,19 @@
-import styles from "../../../styles/Title.module.css";
 import styled from "@emotion/styled";
 import PlayTwo from "../Icons/PlayTwo";
-import PlusTwo from "../Icons/PlusTwo"
+import PlusTwo from "../Icons/PlusTwo";
+
+const Container = styled.div`
+	width: 100%;
+	min-height: 376px;
+	background: linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%);
+	@media (min-width: 768px) {
+		background: inherit;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 95vh;
+	}
+`;
 
 const Heading = styled.h1`
 	font-size: 40px;
@@ -113,7 +125,7 @@ const ButtonList = styled.button`
 
 function Title({titleMovie}) {
 	return (
-		<div className={styles.title}>
+		<Container>
 			<PreTitle>ORIGINAL DE LITEFLIX</PreTitle>
 			<ContainerTile>
 				<Heading>{titleMovie}</Heading>
@@ -128,7 +140,7 @@ function Title({titleMovie}) {
 					MI LISTA
 				</ButtonList>
 			</ContainerButtons>
-		</div>
+		</Container>
 	);
 }
 
