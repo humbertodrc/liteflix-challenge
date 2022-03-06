@@ -7,8 +7,7 @@ import Spinner from "../Spinner/Spinner";
 
 const Container = styled.div`
 	width: 100%;
-	/* height: 800px; */
-	background: #242424;
+	background: linear-gradient(360deg, rgba(36, 36, 36, 0) 0%, #242424 100%);
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;

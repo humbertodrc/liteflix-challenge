@@ -4,7 +4,7 @@ import PlusTwo from "../Icons/PlusTwo";
 
 const Container = styled.div`
 	width: 100%;
-	min-height: 376px;
+	min-height: 395px;
 	background: linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%);
 	@media (min-width: 768px) {
 		background: inherit;
