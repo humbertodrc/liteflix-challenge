@@ -1,40 +1,98 @@
-import styles from "../../../styles/Header.module.css";
+import styled from "@emotion/styled";
 import addMovie from "../../assets/img/agregar-película.png";
 import photo from "../../assets/img/perfil.png";
 import Logo from "../Logo/Logo";
-import Alert from "../Icons/Alert"
-import Menu from "../Icons/Menu"
+import Alert from "../Icons/Alert";
+import Menu from "../Icons/Menu";
 import Plus from "../Icons/Plus";
 
-const Header = ({setModal}) => {
+const ContainerHeader = styled.header`
+	width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	@media (min-width: 768px) {
+		justify-content: space-between;
+	}
+`;
 
-  const handleModal = () => {
-    setModal(true)
-  }
+const AddMovie = styled.img`
+	width: 36px;
+	height: 36px;
+	@media (min-width: 768px) {
+		display: none;
+	}
+`;
+
+const ContainerAddMovie = styled.div`
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 70%;
+	@media (min-width: 768px) {
+		justify-content: space-evenly;
+		width: 40%;
+		flex-direction: row-reverse;
+	}
+`;
+
+const Separator = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const AddMore = styled.a`
+	display: none;
+	@media (min-width: 768px) {
+		font-size: 18px;
+		text-transform: uppercase;
+		margin-left: 1rem;
+		color: #fff;
+		display: inline-block;
+		cursor: pointer;
+	}
+`;
+
+const ContainerMenu = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 30%;
+	@media (min-width: 768px) {
+		width: 300px;
+	}
+`;
+
+const Avatar = styled.img`
+	display: block;
+	margin: 0 auto;
+`;
+
+const Header = ({setModal}) => {
+	const handleModal = () => {
+		setModal(true);
+	};
 
 	return (
-		<header className={styles.header}>
-			<div className={styles.header__actions}>
-				<img
-					className={styles.header__add}
-					src={addMovie}
-					alt="agregar pelicula"
-					onClick={handleModal}
-				/>
-				<div className={styles.header__separator}>
-					<a className={styles.header__more} onClick={handleModal}>
+		<ContainerHeader>
+			<ContainerAddMovie>
+				<AddMovie src={addMovie} alt="agregar pelicula" onClick={handleModal} />
+				<Separator>
+					<AddMore onClick={handleModal}>
 						<Plus />
 						agregar película
-					</a>
-				</div>
+					</AddMore>
+				</Separator>
 				<Logo />
-			</div>
-			<div className={styles.header__menu}>
+			</ContainerAddMovie>
+			<ContainerMenu>
 				<Menu />
 				<Alert />
-				<img className={styles.header__avatar} width={36} height={36} src={photo} alt="foto perfil" />
-			</div>
-		</header>
+				<Avatar width={36} height={36} src={photo} alt="foto perfil" />
+			</ContainerMenu>
+		</ContainerHeader>
 	);
 };
 
