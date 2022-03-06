@@ -51,9 +51,9 @@ function Modal({setModal, myMovies, setMyMovies}) {
 	return (
 		<Container>
 			<HeaderModal/>
+			<Close onClick={handleModal} />
 			{!isSuccessful ? (
 				<>
-					<Close onClick={handleModal} />
 					<Title>agregar película</Title>
 					<ProgressModal
 						isCancel={isCancel}
