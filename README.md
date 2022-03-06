@@ -58,4 +58,8 @@ https://liteflixapp.netlify.app/
 
 ![Group 38](https://user-images.githubusercontent.com/63797901/156947333-e7d15375-43b4-4fcd-81e5-abef2f52f2f6.png)
 
+## Performance
+
+![Captura de pantalla 2022-03-06 205519](https://user-images.githubusercontent.com/63797901/156947914-fd44f9a4-36e0-4385-b4dc-451b970703c2.png)
+
 
