@@ -1,6 +1,5 @@
 import {useState} from "react";
 import {useDropzone} from "react-dropzone";
-import styles from "../../../../styles/FormModal.module.css";
 import clip from "../../../assets/img/clip.png";
 import styled from "@emotion/styled";
 
@@ -173,17 +172,14 @@ const FormModal = ({
 		const {original_title, backdrop_path} = formValues;
 
 		if (original_title == "" || backdrop_path == "") {
-			// campos obligatorios
 			return;
 		} else {
-			// nuevo Objeto para no modificar el estado
 			const myMoviesID = {
 				original_title: formValues.original_title,
 				backdrop_path: formValues.backdrop_path,
 			};
 			myMoviesID.id = generarID();
 			setMyMovies([...myMovies, myMoviesID]);
-			// setIsProgress(true);
 			setIsForm(false);
 
 			setIsSuccessful(true);
