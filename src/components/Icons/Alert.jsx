@@ -4,6 +4,11 @@ import styled from "@emotion/styled";
 const AlertSvg = styled.svg`
 	display: none;
 	animation: dance 1s 3 alternate;
+	cursor: pointer;
+
+	&:hover{
+		transform: scale(1.2);
+	}
 	
 	@keyframes dance {
 		50% {

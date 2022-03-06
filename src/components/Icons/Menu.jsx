@@ -3,6 +3,12 @@ import styled from "@emotion/styled";
 
 const MenuSvg = styled.svg`
 	display: none;
+	cursor: pointer;
+
+	&:hover{
+		transform: scale(1.3);
+	}
+
 	@media (min-width: 768px) {
 		display: block;
 		margin-right: 50px;

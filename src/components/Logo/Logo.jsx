@@ -6,10 +6,19 @@ const LogoLite = styled.p`
 	letter-spacing: 4px;
 	font-weight: 700;
 	color: #64eebc;
+	cursor: pointer;
+
+	&:hover{
+		font-size: 30px;
+	}
 `
 
 const LogoModifier = styled.span`
 	font-weight: 400;
+
+	&:hover{
+		font-size: 30px;
+	}
 `
 
 const Logo = () => {

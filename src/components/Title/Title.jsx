@@ -40,16 +40,16 @@ const Heading = styled.h1`
 	}
 
 	@keyframes moveLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
+		0% {
+			opacity: 0;
+			transform: translateX(-100px);
+		}
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+		100% {
+			opacity: 1;
+			transform: translate(0);
+		}
+	}
 `;
 
 const ContainerTile = styled.div`
@@ -74,16 +74,16 @@ const PreTitle = styled.p`
 	}
 
 	@keyframes moveDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-100px);
-    }
+		0% {
+			opacity: 0;
+			transform: translateY(-100px);
+		}
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+		100% {
+			opacity: 1;
+			transform: translate(0);
+		}
+	}
 `;
 
 const ContainerButtons = styled.div`
@@ -112,19 +112,20 @@ const ButtonPlay = styled.button`
 	box-sizing: border-box;
 	transition-property: background-color;
 	transition-duration: 0.3s;
+	cursor: pointer;
 	animation: moveUp 1s ease-in;
 
 	@keyframes moveUp {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
+		0% {
+			opacity: 0;
+			transform: translateY(100px);
+		}
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+		100% {
+			opacity: 1;
+			transform: translate(0);
+		}
+	}
 
 	&:hover {
 		background: rgba(36, 36, 36, 0.1);
@@ -150,19 +151,20 @@ const ButtonList = styled.button`
 	box-sizing: border-box;
 	transition-property: background-color;
 	transition-duration: 0.3s;
+	cursor: pointer;
 	animation: moveUp 1s ease-in;
 
 	@keyframes moveUp {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
+		0% {
+			opacity: 0;
+			transform: translateY(100px);
+		}
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+		100% {
+			opacity: 1;
+			transform: translate(0);
+		}
+	}
 
 	&:hover {
 		background: #242424;

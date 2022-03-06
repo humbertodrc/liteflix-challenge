@@ -53,6 +53,10 @@ const AddMore = styled.a`
 		display: inline-block;
 		cursor: pointer;
 	}
+
+	&:hover{
+		font-size: 20px;
+	}
 `;
 
 const ContainerMenu = styled.div`
@@ -68,6 +72,7 @@ const ContainerMenu = styled.div`
 const Avatar = styled.img`
 	display: block;
 	margin: 0 auto;
+	cursor: pointer;
 `;
 
 const Header = ({setModal}) => {
