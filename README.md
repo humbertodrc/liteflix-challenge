@@ -52,7 +52,7 @@ Para comenzar a utilizar el proyecto debe clonar el repositorio e instalar depen
 
 
 https://liteflixapp.netlify.app/
-## Authors
+## Autor
 
 - [@Humberto Rivero](https://github.com/danieldamian09)
 
