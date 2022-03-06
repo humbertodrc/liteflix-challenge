@@ -26,6 +26,11 @@ const ContainerInput = styled.div`
 	}
 `;
 
+const ContainerInputActive = styled(ContainerInput)`
+	border: 2px solid #ffffff;
+	background-color: #53525296;
+`;
+
 const InputFile = styled.input`
 	width: 0.1px;
 	height: 0.1px;
@@ -85,6 +90,27 @@ const ButtonExit = styled.button`
 	}
 `;
 
+const ContainerClipMobile = styled.div`
+	display: flex;
+	align-items: center;
+	@media (min-width: 768px) {
+		display: none;
+	}
+`;
+
+const ContainerClipDesktop = styled.div`
+	display: flex;
+	align-items: center;
+	display: none;
+	@media (min-width: 768px) {
+		display: block;
+	}
+
+	span {
+		font-weight: 700;
+	}
+`;
+
 const FormModal = ({
 	setModal,
 	myMovies,
@@ -112,9 +138,6 @@ const FormModal = ({
 		},
 	});
 
-	// Colocar la zona de un color
-	console.log(isDragActive);
-
 	const handleModal = () => {
 		setModal(false);
 	};
@@ -128,7 +151,6 @@ const FormModal = ({
 
 		fileReader.onloadstart = (data) => {
 			if (fileReader.readyState === 1) {
-				console.log("Ha comenzado la carga", data);
 				let progress = parseInt(data.loaded);
 				setProgress(progress);
 			}
@@ -136,7 +158,6 @@ const FormModal = ({
 
 		fileReader.onprogress = (data) => {
 			if (fileReader.readyState === 1) {
-				console.log("Se esta cargado la data", data);
 				setIsForm(false);
 				setIsProgress(true);
 				let progress = parseInt((data.loaded / data.total) * 50, 10);
@@ -146,7 +167,6 @@ const FormModal = ({
 
 		fileReader.onloadend = (data) => {
 			if (fileReader.readyState === 2) {
-				console.log("Se ha cargado toda la data", data);
 				setIsProgress(false);
 				setReady(true);
 				setIsdisabled(false);
@@ -159,8 +179,7 @@ const FormModal = ({
 		fileReader.readAsDataURL(files);
 	};
 
-	// generar ID unico
-	const generarID = () => {
+	const generateID = () => {
 		const random = Math.random().toString(36).substr(2);
 		const fecha = Date.now().toString(36);
 		return random + fecha;
@@ -178,7 +197,7 @@ const FormModal = ({
 				original_title: formValues.original_title,
 				backdrop_path: formValues.backdrop_path,
 			};
-			myMoviesID.id = generarID();
+			myMoviesID.id = generateID();
 			setMyMovies([...myMovies, myMoviesID]);
 			setIsForm(false);
 
@@ -189,19 +208,49 @@ const FormModal = ({
 	return (
 		<form>
 			{isForm && (
-				<ContainerInput {...getRootProps()}>
-					<InputFile
-						type="file"
-						id="movie"
-						accept="image/png,image/jpeg"
-						onChange={(e) => {
-							send_image(e.target.files[0]);
-						}}
-						{...getInputProps()}
-					/>
-					<ImgClip src={clip} alt="clip" />
-					Agregá un archivo
-				</ContainerInput>
+				<>
+					{!isDragActive ? (
+						<ContainerInput {...getRootProps()}>
+							<InputFile
+								type="file"
+								id="movie"
+								accept="image/png,image/jpeg"
+								onChange={(e) => {
+									send_image(e.target.files[0]);
+								}}
+								{...getInputProps()}
+							/>
+							<ContainerClipMobile>
+								<ImgClip src={clip} alt="clip" />
+								Agregá un archivo
+							</ContainerClipMobile>
+							<ContainerClipDesktop>
+								<ImgClip src={clip} alt="clip" />
+								<span>Agregá un archivo</span> o arrastralo y soltalo aquí
+							</ContainerClipDesktop>
+						</ContainerInput>
+					) : (
+						<ContainerInputActive {...getRootProps()}>
+							<InputFile
+								type="file"
+								id="movie"
+								accept="image/png,image/jpeg"
+								onChange={(e) => {
+									send_image(e.target.files[0]);
+								}}
+								{...getInputProps()}
+							/>
+							<ContainerClipMobile>
+								<ImgClip src={clip} alt="clip" />
+								Agregá un archivo
+							</ContainerClipMobile>
+							<ContainerClipDesktop>
+								<ImgClip src={clip} alt="clip" />
+								<span>Agregá un archivo</span> o arrastralo y soltalo aquí
+							</ContainerClipDesktop>
+						</ContainerInputActive>
+					)}
+				</>
 			)}
 			<InputText
 				value={formValues.original_title}
