@@ -11,7 +11,7 @@
 @media (min-width: 768px) {
 	.container {
 		background-size: cover;
-		height: 100vh;
+		min-height: 100vh;
 		background-position: 50% 15%;
 		animation: focus 3s ease-out;
 		-webkit-animation: focus 3s ease-out;

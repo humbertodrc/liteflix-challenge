@@ -4,14 +4,32 @@ import Spinner from "../Spinner/Spinner";
 import play from "../../assets/img/play.png";
 
 const Container = styled.div`
-	width: 90%;
 	position: relative;
+	margin: 0 auto;
+
+	@media (min-width: 768px){
+		margin-right: 2rem;
+	}
+`;
+
+const Image = styled.img`
+	display: block;
+	height: auto;
+	margin: 0.5rem auto;
+	width: 327px;
+	height: 127px;
+	object-fit: cover;
+	position: relative;
+	@media (min-width: 768px){
+		width: 220px;
+		height: 146px;
+	}
 
 	&::before {
 		content: "";
 		position: absolute;
-		top: 0.5rem;
-		bottom: 0.5rem;
+		top: 0;
+		bottom: 0;
 		left: 0;
 		right: 0;
 		background: linear-gradient(
@@ -20,13 +38,6 @@ const Container = styled.div`
 			#000000 122.69%
 		);
 	}
-`;
-
-const Image = styled.img`
-	display: block;
-	width: 100%;
-	height: auto;
-	margin: 0.5rem auto;
 `;
 
 const Title = styled.p`
@@ -48,8 +59,7 @@ const Play = styled.img`
 `;
 
 const CardMovie = ({movie, select, loading}) => {
-
-	const {backdrop_path, original_title} = movie
+	const {backdrop_path, original_title} = movie;
 
 	// console.log(movie)
 

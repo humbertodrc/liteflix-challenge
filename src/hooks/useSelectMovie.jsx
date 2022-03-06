@@ -6,7 +6,7 @@ const Container = styled.div`
 	width: 100%;
 	display: flex;
     justify-content: center;
-		margin-top: 60px;
+		margin-top: 10px;
 	@media (min-width: 768px) {
 		background: inherit;
 	}

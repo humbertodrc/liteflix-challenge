@@ -33,7 +33,7 @@ function Aside({popularMovie, setPopularMovie, myMovies}) {
 				const {results} = await respuesta?.json();
 				const shuffledArray = results
 					.sort((a, b) => 0.5 - Math.random())
-					.slice(0, 3);
+					.slice(0, 4);
 				setPopularMovie(shuffledArray);
 			};
 			getAPIData();

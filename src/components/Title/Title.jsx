@@ -44,7 +44,7 @@ const PreTitle = styled.p`
 	color: #fff;
 	@media (min-width: 768px) {
 		text-align: left;
-		margin-top: 5rem;
+		margin-top: 8rem;
 	}
 `;
 
