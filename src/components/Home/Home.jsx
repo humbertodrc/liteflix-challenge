@@ -1,9 +1,53 @@
 import React, {useEffect, useState} from "react";
+import styled from "@emotion/styled";
 import Header from "../Header/Header";
-import styles from "../../../styles/Home.module.css";
 import Title from "../Title/Title";
 import Aside from "../Aside/Aside";
 import Spinner from "../Spinner/Spinner";
+
+const Container = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top;
+	@media (min-width: 768px) {
+		background-size: cover;
+		min-height: 100vh;
+		background-position: 50% 15%;
+		animation: focus 3s ease-out;
+		-webkit-animation: focus 3s ease-out;
+	}
+	@keyframes focus {
+		0% {
+			transform: scale(1.2);
+			-webkit-transform: scale(1.2);
+			-moz-transform: scale(1.2);
+			-ms-transform: scale(1.2);
+			-o-transform: scale(1.2);
+		}
+		100% {
+			transform: scale(1);
+			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
+			-ms-transform: scale(1);
+			-o-transform: scale(1);
+		}
+	}
+`;
+
+const Main = styled.main`
+	width: 100%;
+	margin: 70px auto 0px;
+	@media (min-width: 768px) {
+		margin: 0 30px;
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+		column-gap: 2rem;
+	}
+`
 
 function Home({setModal, popularMovie, setPopularMovie, myMovies}) {
 	const [nowPlaying, setNowPlaying] = useState([]);
@@ -47,17 +91,17 @@ function Home({setModal, popularMovie, setPopularMovie, myMovies}) {
 			{load ? (
 				<Spinner />
 			) : (
-				<div className={styles.container} style={sectionStyleMovie}>
+				<Container style={sectionStyleMovie}>
 					<Header setModal={setModal} />
-					<main className={styles.container__main}>
+					<Main>
 						<Title titleMovie={titleMovie} />
 						<Aside
 							popularMovie={popularMovie}
 							setPopularMovie={setPopularMovie}
 							myMovies={myMovies}
 						/>
-					</main>
-				</div>
+					</Main>
+				</Container>
 			)}
 		</>
 	);
