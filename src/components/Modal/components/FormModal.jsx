@@ -15,6 +15,7 @@ const FormModal = ({
 	setIsdisabled,
 	setReady,
 	setIsCancel,
+	setIsSuccessful
 }) => {
 	const [formValues, setFormValues] = useState({
 		original_title: "",
@@ -102,7 +103,7 @@ const FormModal = ({
 			// setIsProgress(true);
 			setIsForm(false);
 
-			setSuccessful(true);
+			setIsSuccessful(true);
 		}
 	};
 
