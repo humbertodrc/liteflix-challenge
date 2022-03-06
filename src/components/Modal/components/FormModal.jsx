@@ -2,6 +2,89 @@ import {useState} from "react";
 import {useDropzone} from "react-dropzone";
 import styles from "../../../../styles/FormModal.module.css";
 import clip from "../../../assets/img/clip.png";
+import styled from "@emotion/styled";
+
+const ContainerInput = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: 1px dashed #ffffff;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 19px;
+	letter-spacing: 4px;
+	font-weight: 400;
+	margin: 0 auto 2rem;
+	min-height: 81px;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	width: 90%;
+	@media (min-width: 768px) {
+		margin-bottom: 1rem;
+	}
+`;
+
+const InputFile = styled.input`
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+`;
+
+const ImgClip = styled.img`
+	margin-right: 0.8rem;
+`;
+
+const InputText = styled.input`
+	background: transparent;
+	border: none;
+	border-bottom: solid 1px #fff;
+	display: block;
+	width: 69%;
+	margin: 0 auto 1rem;
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	line-height: 19px;
+	letter-spacing: 4px;
+	padding: 1rem;
+	@media (min-width: 768px) {
+		width: 40%;
+	}
+`;
+
+const ButtonUpLoad = styled.button`
+	font-size: 18px;
+	line-height: 22px;
+	letter-spacing: 4px;
+	color: #242424;
+	width: 248px;
+	height: 56px;
+	display: block;
+	margin: 40px auto 24px;
+`;
+
+const ButtonExit = styled.button`
+	font-size: 18px;
+	line-height: 22px;
+	letter-spacing: 4px;
+	color: #fff;
+	width: 248px;
+	height: 56px;
+	display: block;
+	margin: 24px auto;
+	background: rgba(36, 36, 36, 0.5);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	box-sizing: border-box;
+	@media (min-width: 768px) {
+		display: none;
+	}
+`;
 
 const FormModal = ({
 	setModal,
@@ -15,7 +98,7 @@ const FormModal = ({
 	setIsdisabled,
 	setReady,
 	setIsCancel,
-	setIsSuccessful
+	setIsSuccessful,
 }) => {
 	const [formValues, setFormValues] = useState({
 		original_title: "",
@@ -84,7 +167,7 @@ const FormModal = ({
 		return random + fecha;
 	};
 
-	const handleSubmit =  (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		const {original_title, backdrop_path} = formValues;
@@ -110,13 +193,8 @@ const FormModal = ({
 	return (
 		<form>
 			{isForm && (
-				<div
-					// htmlFor="movie"
-					className={styles.form__custom}
-					{...getRootProps()}
-				>
-					<input
-						className={styles.form__file}
+				<ContainerInput {...getRootProps()}>
+					<InputFile
 						type="file"
 						id="movie"
 						accept="image/png,image/jpeg"
@@ -125,30 +203,24 @@ const FormModal = ({
 						}}
 						{...getInputProps()}
 					/>
-					<img className={styles.form__clip} src={clip} alt="clip" />
+					<ImgClip src={clip} alt="clip" />
 					Agregá un archivo
-				</div>
+				</ContainerInput>
 			)}
-			<input
+			<InputText
 				value={formValues.original_title}
-				className={styles.form__text}
 				placeholder="TÍTULO"
 				type="text"
 				onChange={(e) =>
 					setFormValues({...formValues, original_title: e.target.value})
 				}
 			/>
-			<button
-				type="submit"
-				className={styles.form__upload}
-				onClick={handleSubmit}
-				disabled={isDisabled}
-			>
+			<ButtonUpLoad type="submit" onClick={handleSubmit} disabled={isDisabled}>
 				subir película
-			</button>
-			<button type="button" className={styles.form__exit} onClick={handleModal}>
+			</ButtonUpLoad>
+			<ButtonExit type="button" onClick={handleModal}>
 				salir
-			</button>
+			</ButtonExit>
 		</form>
 	);
 };
