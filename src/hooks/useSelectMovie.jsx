@@ -31,7 +31,7 @@ const Select = styled.select`
 	color: #fff;
 	font-weight: bold;
 	@media (min-width: 768px) {
-		background: rgba(151, 149, 149, 0.521);
+		background: #242424;
 	}
 `;
 
