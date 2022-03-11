@@ -9,7 +9,7 @@ const LogoLite = styled.p`
 	cursor: pointer;
 
 	&:hover{
-		font-size: 30px;
+		transform: scale(1.2);
 	}
 `
 

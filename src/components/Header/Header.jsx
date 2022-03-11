@@ -53,11 +53,10 @@ const AddMore = styled.button`
 		display: inline-block;
 		cursor: pointer;
 		background: transparent;
-    border: none;
+		border: none;
 	}
-
-	&:hover{
-		font-size: 20px;
+	&:hover {
+		transform: scale(1.2);
 	}
 `;
 
@@ -92,7 +91,9 @@ const Header = ({setModal}) => {
 						agregar película
 					</AddMore>
 				</Separator>
-				<Logo />
+				<div>
+					<Logo />
+				</div>
 			</ContainerAddMovie>
 			<ContainerMenu>
 				<Menu />
