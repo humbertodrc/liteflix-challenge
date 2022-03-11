@@ -24,8 +24,9 @@ function Aside({popularMovie, setPopularMovie, myMovies}) {
 
 	// Get Peliculas
 	const getMoviesPopular = () => {
-		const urlMoviesPopular = `https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20`;
 		setIsLoading(true);
+		const urlMoviesPopular = `https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20`;
+		
 		if (select === 1) {
 			const getAPIData = async () => {
 				const respuesta = await fetch(urlMoviesPopular);

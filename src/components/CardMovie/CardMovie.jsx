@@ -1,3 +1,5 @@
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import styled from "@emotion/styled";
 import Spinner from "../Spinner/Spinner";
 import play from "../../assets/img/play.png";
@@ -68,7 +70,7 @@ const CardMovie = ({movie, select, loading}) => {
 				</p>
 			) : (
 				<>
-					<Image
+					<LazyLoadImage
 						src={
 							select === 1
 								? `https://image.tmdb.org/t/p/original/${backdrop_path}`
@@ -77,6 +79,7 @@ const CardMovie = ({movie, select, loading}) => {
 						alt="Popular Movie"
 						width={327}
 						height={127}
+						effect="blur"
 					/>
 					<Play src={play} alt="play" />
 					<Title>{original_title}</Title>
