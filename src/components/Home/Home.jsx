@@ -17,8 +17,8 @@ const Container = styled.div`
 		background-size: cover;
 		min-height: 100vh;
 		background-position: 50% 15%;
-		animation: focus 3s ease-out;
-		-webkit-animation: focus 3s ease-out;
+		animation: focus 2s ease-out;
+		-webkit-animation: focus 2s ease-out;
 	}
 	@keyframes focus {
 		0% {
