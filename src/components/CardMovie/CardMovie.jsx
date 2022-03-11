@@ -83,7 +83,7 @@ const CardMovie = ({movie, select, loading}) => {
 						}
 						alt="Popular Movie"
 						width={327}
-						height={127}
+						height={147}
 						effect="blur"
 					/>
 					<Play src={play} alt="play" />
