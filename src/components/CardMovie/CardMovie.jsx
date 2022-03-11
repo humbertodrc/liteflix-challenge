@@ -1,15 +1,19 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import {LazyLoadImage} from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import styled from "@emotion/styled";
 import Spinner from "../Spinner/Spinner";
 import play from "../../assets/img/play.png";
 
 const Container = styled.div`
 	position: relative;
-	margin: 0 auto;
+	margin: 5px auto;
 
-	@media (min-width: 768px){
+	@media (min-width: 768px) {
 		margin-right: 2rem;
+	}
+
+	&:hover {
+		transform: scale(1.1);
 	}
 `;
 
@@ -21,7 +25,7 @@ const Image = styled.img`
 	height: 127px;
 	object-fit: cover;
 	position: relative;
-	@media (min-width: 768px){
+	@media (min-width: 768px) {
 		width: 220px;
 		height: 146px;
 	}
@@ -57,6 +61,7 @@ const Play = styled.img`
 	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	cursor: pointer;
 `;
 
 const CardMovie = ({movie, select, loading}) => {
